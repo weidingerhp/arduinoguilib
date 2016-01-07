@@ -14,7 +14,7 @@
 namespace hpwguilib {
 namespace controls {
 
-class ButtonBase : IDrawable {
+class ButtonBase : public virtual IDrawable, public virtual IClickable {
 protected:
 	int16_t _x;
 	int16_t _y;
@@ -36,6 +36,17 @@ public:
 	int16_t y() const {return _y;}
 	int16_t width() const {return _width;}
 	int16_t height() const {return _height;}
+
+	// from IClickable
+	virtual void click();
+	virtual void touchDown();
+	virtual void touchUp();
+
+	virtual bool isInClickRange(int16_t x, int16_t y);
+
+	// from IDrawable
+	virtual void draw();
+	virtual bool overlapsRect(int16_t top, int16_t left, int16_t width, int16_t height);
 
 };
 

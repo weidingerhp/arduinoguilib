@@ -51,15 +51,6 @@ void WindowManagement::loop() {
 	    p.y = map(p.y, TS_MINX, TS_MAXX, 0, tft.width());
 	    int y = isRotated ? (tft.height() - p.x) : p.y;
 	    int x = isRotated ? p.y : p.x;
-
-
-	    tft.setTextColor(ILI9341_BLACK);
-		tft.setCursor(10,50);
-		char ch[40];
-		sprintf(ch, "detected %i x %i", x, y);
-		tft.fillRect(10,50, width-10, 20, ILI9341_WHITE);
-		tft.println(ch);
-		delay(100);
 	}
 }
 
